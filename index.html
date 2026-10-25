@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A Computer Science student portfolio documenting real learning and beginner projects across web development, Python, cybersecurity, cloud, and machine learning.">
+  <title>Portfolio | Computer Science Student</title>
+  <style>
+    :root { --navy:#101a32; --panel:#182642; --cyan:#55d6d0; --white:#f5f7ff; --muted:#b7c3d9; --line:#30415f; }
+    * { box-sizing:border-box; }
+    ::selection { background:var(--cyan); color:var(--navy); }
+    :focus-visible { outline:2px solid var(--cyan); outline-offset:4px; }
+    body:before { content:""; position:fixed; inset:0; pointer-events:none; z-index:-1; opacity:.24; background-image:radial-gradient(#5bdad2 0.7px,transparent 0.7px); background-size:28px 28px; mask-image:linear-gradient(to bottom,black,transparent 72%); }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Inter,Arial,sans-serif; background:var(--navy); color:var(--white); line-height:1.65; }
+    a { color:inherit; }
+    .wrap { width:min(1080px,92%); margin:auto; }
+    header { position:sticky; top:0; z-index:10; background:rgba(16,26,50,.94); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+    nav { min-height:70px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .brand { font-weight:800; letter-spacing:.04em; color:var(--cyan); }
+    nav .links { display:flex; gap:20px; flex-wrap:wrap; }
+    nav a { text-decoration:none; font-size:.92rem; color:var(--muted); }
+    nav a:hover, nav a:focus { color:var(--cyan); }
+    .hero { padding:88px 0 72px; display:grid; grid-template-columns:1.5fr .8fr; align-items:center; gap:44px; }
+    .hero-copy { animation:rise-in .7s ease both; }
+    .status-line { display:inline-flex; align-items:center; gap:9px; border:1px solid #55d6d044; background:#55d6d010; color:var(--muted); padding:7px 11px; border-radius:999px; font-size:.82rem; margin-top:18px; }
+    .status-dot { width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 12px #55d6d0; }
+    .section-kicker { color:var(--cyan); font-size:.76rem; font-weight:800; text-transform:uppercase; letter-spacing:.14em; margin-bottom:6px; }
+    .eyebrow { color:var(--cyan); text-transform:uppercase; letter-spacing:.16em; font-size:.8rem; font-weight:700; }
+    h1 { font-size:clamp(2.5rem,6vw,4.8rem); line-height:1.08; margin:14px 0 20px; letter-spacing:-.04em; }
+    h1 span { color:var(--cyan); }
+    .lead { color:var(--muted); font-size:1.12rem; max-width:620px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:28px; }
+    .btn { display:inline-block; text-decoration:none; border-radius:10px; padding:12px 18px; font-weight:700; border:1px solid var(--cyan); }
+    .primary { background:var(--cyan); color:var(--navy); }
+    .secondary { color:var(--white); }
+    .orbit { min-height:280px; display:grid; place-items:center; }
+    .orb { width:min(250px,65vw); aspect-ratio:1; border-radius:50%; border:1px solid #4d7d9a; display:grid; place-items:center; position:relative; background:radial-gradient(circle at 35% 30%,#244d69,#182642 58%,#101a32); box-shadow:0 0 60px #55d6d022; animation:float 5s ease-in-out infinite; }
+    .orb:before,.orb:after { content:""; position:absolute; border:1px solid #55d6d066; border-radius:50%; inset:18px; transform:rotate(35deg) scaleX(1.3); }
+    .orb:after { transform:rotate(-35deg) scaleX(1.3); }
+    .orb strong { font-size:3.2rem; color:var(--cyan); z-index:1; }
+    section { padding:66px 0; border-top:1px solid var(--line); }
+    .section-title { font-size:2rem; margin:0 0 8px; }
+    .section-intro { color:var(--muted); margin:0 0 28px; }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .card { background:linear-gradient(145deg,#1a2a48,#17243d); border:1px solid var(--line); border-radius:16px; padding:22px; transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease; }
+    .card:hover { transform:translateY(-4px); border-color:#55d6d088; box-shadow:0 14px 36px #050b182e; }
+    .card-icon { width:40px; height:40px; display:grid; place-items:center; border:1px solid #55d6d044; background:#55d6d012; color:var(--cyan); border-radius:11px; font-weight:800; margin-bottom:15px; }
+    .card h3 { letter-spacing:-.015em; }
+    .skill-note { display:block; margin-top:12px; font-size:.82rem; color:var(--cyan); }
+    .card h3 { margin:0 0 8px; }
+    .card p { margin:0; color:var(--muted); }
+    .tag { display:inline-block; margin:6px 5px 0 0; padding:5px 9px; border-radius:7px; background:#203b55; color:var(--cyan); font-size:.82rem; }
+    .project-label { color:var(--cyan); font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; font-weight:700; }
+    .contact-box { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; background:var(--panel); padding:26px; border:1px solid var(--line); border-radius:16px; }
+    .project-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+    .pill { display:inline-flex; border:1px solid #55d6d044; color:var(--cyan); border-radius:999px; padding:4px 9px; font-size:.72rem; font-weight:700; letter-spacing:.04em; }
+    .contact-box { background:linear-gradient(120deg,#1a2a48,#15233b); }
+    footer { padding:28px 0; color:var(--muted); font-size:.9rem; text-align:center; }
+    @keyframes rise-in { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-8px); } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation:none !important; transition:none !important; } }
+    @media(max-width:720px) { .hero { grid-template-columns:1fr; padding:60px 0; gap:10px; } .orbit { min-height:210px; } .grid { grid-template-columns:1fr; } nav { align-items:flex-start; padding:16px 0; flex-direction:column; } nav .links { gap:12px; } section { padding:48px 0; } }
+  </style>
+  <!-- Before publishing: replace the LinkedIn homepage link with your own public profile URL. -->
+</head>
+<body>
+  <header><nav class="wrap" aria-label="Main navigation">
+    <a class="brand" href="#home">KAL · TECH JOURNEY<span aria-hidden="true">.</span></a>
+    <div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  </nav></header>
+  <main>
+    <div class="wrap hero" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow">Computer Science Student · Lifelong Learner</div>
+        <h1>Learning today. <span>Building for tomorrow.</span></h1>
+        <p class="lead">I’m a Computer Science student developing my skills step by step. I’m currently practicing HTML and CSS, learning Python fundamentals, and exploring cybersecurity, cloud computing, and machine learning.</p>
+        <div class="actions"><a class="btn primary" href="#projects">Explore my journey <span aria-hidden="true">↗</span></a><a class="btn secondary" href="#contact">Let’s connect</a></div>
+        <div class="status-line"><span class="status-dot" aria-hidden="true"></span>Currently learning · Open to growth opportunities</div>
+      </div>
+      <div class="orbit" aria-hidden="true"><div class="orb"><strong>&lt;/&gt;</strong></div></div>
+    </div>
+    <section id="about"><div class="wrap">
+      <div class="section-kicker">A little about me</div><h2 class="section-title">Curious mind. Growing skill set.</h2><p class="section-intro">A student portfolio documenting real progress—not claimed experience.</p>
+      <div class="card"><p>I’m a Computer Science student building my technical foundation through coursework and hands-on practice. My current focus is front-end web development, while I gradually explore Python programming, cybersecurity, machine learning, and cloud computing. This portfolio will grow as I complete projects and gain experience.</p></div>
+    </div></section>
+    <section id="skills"><div class="wrap">
+      <div class="section-kicker">What I’m learning</div><h2 class="section-title">Skills & interests</h2><p class="section-intro">A growing toolkit—updated as I gain experience. Interests are not presented as professional expertise.</p>
+      <div class="grid">
+        <article class="card"><div class="card-icon" aria-hidden="true">&lt;/&gt;</div><h3>Web development</h3><p>Building responsive web pages and practicing front-end fundamentals.</p><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript — learning</span></article>
+        <article class="card"><div class="card-icon" aria-hidden="true">{ }</div><h3>Programming</h3><p>Strengthening programming fundamentals through small exercises and projects.</p><span class="tag">Python — beginner</span><span class="tag">Problem solving</span></article>
+        <article class="card"><div class="card-icon" aria-hidden="true">⌘</div><h3>Technology interests</h3><p>Exploring how systems work and how technology can solve real problems.</p><span class="tag">Cybersecurity</span><span class="tag">Cloud</span><span class="tag">Machine learning</span></article>
+      </div>
+    </div></section>
+    <section id="projects"><div class="wrap">
+      <div class="section-kicker">Learning by doing</div><h2 class="section-title">Projects & progress</h2><p class="section-intro">I’m at the beginning of my project journey. The status on each card is intentional: I’ll showcase completed work after I build and test it.</p>
+      <div class="grid">
+        <article class="card"><div class="project-meta"><span class="pill">IN PROGRESS</span><span class="project-label">Personal project</span></div><h3>Personal Portfolio Website</h3><p>This website is my first portfolio project. I’m developing it with HTML and CSS to introduce myself and document my learning journey. It is still being customized and prepared for publication.</p><span class="tag">HTML</span><span class="tag">CSS</span></article>
+        <article class="card"><div class="project-meta"><span class="pill">LEARNING</span><span class="project-label">Practice, not a project yet</span></div><h3>Python Fundamentals</h3><p>I’m practicing beginner concepts such as variables, conditions, loops, lists, and dictionaries. I’ll add a separate Python project after I build and test one.</p><span class="tag">Python</span><span class="tag">Beginner practice</span></article>
+        <article class="card"><div class="project-meta"><span class="pill">EXPLORING</span><span class="project-label">Areas of interest</span></div><h3>Cybersecurity & Machine Learning</h3><p>I’m learning the fundamentals and exploring beginner exercises. I’ll share a project here only after completing it and confirming what it does.</p><span class="tag">Cybersecurity</span><span class="tag">Machine learning</span></article>
+      </div>
+    </div></section>
+    <section id="contact"><div class="wrap">
+      <div class="section-kicker">Say hello</div><h2 class="section-title">Let’s connect</h2><p class="section-intro">Interested in learning, collaboration, or entry-level opportunities.</p>
+      <div class="contact-box"><div><h3 style="margin:0 0 6px">Connect with me on LinkedIn</h3><p style="margin:0;color:var(--muted)">I’m interested in connecting with fellow learners and exploring opportunities to grow.</p></div><a class="btn primary" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="Open LinkedIn; replace this link with your profile URL">Find me on LinkedIn ↗</a></div>
+    </div></section>
+  </main>
+  <footer><div class="wrap">© <span id="year">2026</span> · Computer Science Student Portfolio · Built with HTML & CSS</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
